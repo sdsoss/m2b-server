@@ -1,0 +1,22 @@
+{
+    "name": "m2b-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+        "compile": "tsc",
+        "start": "npm run compile && node ./dist/index.js"
+    },
+    "keywords": [],
+    "author": "samuelds",
+    "license": "GPL-3.0-or-later",
+    "devDependencies": {
+        "@types/node": "^20.11.30",
+        "typescript": "^5.4.3"
+    },
+    "dependencies": {
+        "@apollo/server": "^4.10.2",
+        "graphql": "^16.8.1"
+    }
+}
