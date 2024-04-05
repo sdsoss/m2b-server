@@ -5,7 +5,7 @@ services:
     container_name: app
     image: node:18
     ports:
-      - "3000:3000"
+      - "4000:4000"
     working_dir: /app
     volumes:
         - .:/app
