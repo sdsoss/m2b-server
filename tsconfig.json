@@ -1,18 +1,17 @@
 {
     "compilerOptions": {
-        "rootDirs": [
-            "src"
-        ],
-        "outDir": "dist",
-        "lib": [
-            "es2020"
-        ],
-        "target": "es2020",
+        "target": "esnext",
         "module": "esnext",
         "moduleResolution": "node",
+        "lib": ["esnext"],
+
+        "outDir": "./dist",
+        "rootDir": "./src",
+
+        "experimentalDecorators": true,
+        "strict": true,
         "esModuleInterop": true,
-        "types": [
-            "node"
-        ]
-    }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }
