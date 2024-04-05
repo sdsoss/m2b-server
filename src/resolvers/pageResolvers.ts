@@ -4,26 +4,68 @@ import Block from '../models/Block';
 const pageResolvers = {
     Page: {
         blocks: (page: { blocks: any; }) => {
-            return Block.find({_id: {$in: page.blocks}});
+            return new Promise((resolve, reject) => {
+                Block.find({_id: {$in: page.blocks}})
+                    .then((res: any) => {
+                        resolve(res);
+                    },
+                    (err: any) => {
+                        reject(err);
+                    });
+            });
         },
     },
     Query: {
         getPage: (_: any, {id}: any) => {
-            return Page.findById(id);
+            return new Promise((resolve, reject) => {
+                Page.findById(id)
+                    .then((res: any) => {
+                        resolve(res);
+                    } , (err: any) => {
+                        reject(err);
+                    });
+            });
         },
+        // Get all pages
         getPages: () => {
-            return Page.find();
+            return new Promise((resolve, reject) => {
+                Page.find().then((res: any) => {
+                    resolve(res);
+                }, (err: any) => {
+                    reject(err);
+                });
+            });
         },
     },
     Mutation: {
         createPage: (_: any, {input}: any) => {
-            return Page.create(input);
+            return new Promise((resolve, reject) => {
+                Page.create(input).then((res: any) => {
+                    resolve(res);
+                }, (err: any) => {
+                    reject(err);
+                });
+            });
         },
         updatePage: (_: any, {id, input}: any) => {
-            return Page.findByIdAndUpdate(id, input, {new: true});
+            return new Promise((resolve, reject) => {
+                Page.findByIdAndUpdate(id, input, {new: true})
+                    .then((res: any) => {
+                        resolve(res);
+                    }, (err: any) => {
+                        reject(err);
+                    });
+            });
         },
         deletePage: (_: any, {id}: any) => {
-            return Page.findByIdAndDelete(id);
+            return new Promise((resolve, reject) => {
+                Page.findByIdAndDelete(id)
+                    .then((res: any) => {
+                        resolve(res);
+                    }, (err: any) => {
+                        reject(err);
+                    });
+            });
         },
     },
 };
