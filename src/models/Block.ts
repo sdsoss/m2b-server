@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const blockSchema = new Schema({
@@ -7,7 +7,12 @@ const blockSchema = new Schema({
         required: true
     },
     content: String,
-    url: String // utilisé uniquement pour les blocks de type 'image'
+    url: String,
+    page: {
+        type: Schema.Types.ObjectId,
+        ref: 'Page',
+        required: true
+    }
 });
 
-module.exports = mongoose.model('Block', blockSchema);
+export default mongoose.model('Block', blockSchema);

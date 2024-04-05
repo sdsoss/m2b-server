@@ -1,5 +1,5 @@
-import Page from '../../models/Page';
-import Block from '../../models/Block';
+import Page from '../models/Page';
+import Block from '../models/Block';
 
 const pageResolvers = {
     Page: {
@@ -8,8 +8,22 @@ const pageResolvers = {
         },
     },
     Query: {
-        getPage: (_, { id }) => {
+        getPage: (_: any, {id}: any) => {
             return Page.findById(id);
+        },
+        getPages: () => {
+            return Page.find();
+        },
+    },
+    Mutation: {
+        createPage: (_: any, {input}: any) => {
+            return Page.create(input);
+        },
+        updatePage: (_: any, {id, input}: any) => {
+            return Page.findByIdAndUpdate(id, input, {new: true});
+        },
+        deletePage: (_: any, {id}: any) => {
+            return Page.findByIdAndDelete(id);
         },
     },
 };
