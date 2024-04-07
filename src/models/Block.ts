@@ -2,12 +2,18 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const blockSchema = new Schema({
-    type: {
-        type: String,
+    _type: {
+        type: Schema.Types.String,
         required: true
     },
-    content: String,
-    url: String,
+    content: {
+        type: Schema.Types.Mixed,
+        required: true
+    },
+    versionNumber: {
+        type: Schema.Types.Number,
+        required: false
+    },
     page: {
         type: Schema.Types.ObjectId,
         ref: 'Page',

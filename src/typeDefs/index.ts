@@ -1,10 +1,19 @@
 import { gql } from 'apollo-server';
 
-import blockTypeDefs from "./blockTypeDefs";
-import pageTypeDefs from "./pageTypeDefs";
+import PageTypeDefs from "@/typeDefs/PageTypeDefs";
+
+import BlockTypeDefs from "@/typeDefs/BlockTypeDefs";
+
+// Import all typeDefs for each block type
+import TextBlockDefs from "@/typeDefs/TextBlockDefs";
+import QuoteBlockDefs from "@/typeDefs/QuoteBlockDefs";
 
 // Utiliser gql pour étendre des types si nécessaire
 const linkSchema = gql`
+    scalar JSON
+
+    union AnyBlock = TextBlock | QuoteBlock
+    
     type Query {
         _: Boolean
     }
@@ -15,6 +24,12 @@ const linkSchema = gql`
 `;
 
 
-const typeDefs = [linkSchema, blockTypeDefs, pageTypeDefs];
+const typeDefs = [
+    linkSchema,
+    PageTypeDefs,
+    BlockTypeDefs,
+    QuoteBlockDefs,
+    TextBlockDefs
+];
 
 export default typeDefs;

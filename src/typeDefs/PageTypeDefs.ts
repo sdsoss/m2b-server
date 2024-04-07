@@ -1,10 +1,11 @@
 import { gql } from 'apollo-server';
 
-const pageTypeDefs = gql`
+const PageTypeDefs = gql`
     type Page {
         id: ID!
         title: String!
-        blocks: [Block]
+        blocks: [AnyBlock]
+        versionNumber: Int!
     }
 
     input PageInput {
@@ -24,4 +25,4 @@ const pageTypeDefs = gql`
     }
 `;
 
-export default pageTypeDefs;
+export default PageTypeDefs;

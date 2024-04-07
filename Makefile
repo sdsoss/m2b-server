@@ -6,7 +6,6 @@ build:
 	docker compose build
 logs:
 	docker compose logs -f
-node:
-	npm run start
-node:
+
+dev:
 	npm run dev

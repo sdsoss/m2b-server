@@ -1,24 +1,6 @@
 version: '3.8'
 
 services:
-  app:
-    container_name: app
-    image: node:18
-    ports:
-      - "4000:4000"
-    working_dir: /app
-    volumes:
-        - .:/app
-        - /app/node_modules
-    depends_on:
-      - mongodb
-    environment:
-      - MONGODB_URI=mongodb://root:root@mongodb:27017/app
-      - MONGODB_USER=root
-      - MONGODB_PASS=root
-      - NODE_ENV=development
-    command: npm run dev
-
   mongodb:
     container_name: mongodb
     image: mongo:7
