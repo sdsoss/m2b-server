@@ -1,5 +1,5 @@
-import Page from '../models/Page';
-import Block from '../models/Block';
+import Page from '../../models/Page';
+import Block from '../../models/Block';
 
 const mutationFunctions = {
     createBlock: (_: any, {pageId, input}: any) => {

@@ -1,12 +1,12 @@
 import { gql } from 'apollo-server';
 
-import PageTypeDefs from "@/typeDefs/PageTypeDefs";
+import PageTypeDefs from "@/graphql/schemas/PageTypeDefs";
 
-import BlockTypeDefs from "@/typeDefs/BlockTypeDefs";
+import BlockTypeDefs from "@/graphql/schemas/BlockTypeDefs";
 
 // Import all typeDefs for each block type
-import TextBlockDefs from "@/typeDefs/TextBlockDefs";
-import QuoteBlockDefs from "@/typeDefs/QuoteBlockDefs";
+import TextBlockDefs from "@/graphql/schemas/TextBlockDefs";
+import QuoteBlockDefs from "@/graphql/schemas/QuoteBlockDefs";
 
 // Utiliser gql pour étendre des types si nécessaire
 const linkSchema = gql`
