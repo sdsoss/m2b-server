@@ -10,11 +10,13 @@ const QuoteBlockDefs = gql`
     }
     
     type QuoteBlockContent {
-        text: String!
+        quote: String!
+        author: String!
     }
     
     input QuoteBlockContentInput {
-        text: String!
+        quote: String!
+        author: String!
     }
 
     input QuoteBlockInput {

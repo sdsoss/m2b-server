@@ -20,6 +20,9 @@ const mutationFunctions = {
                         }, (err: any) => {
                             reject(err);
                         });
+
+                        page.blocks.push(block);
+                        page.save();
                     },
                     (err: any) => {
                         reject(err);
